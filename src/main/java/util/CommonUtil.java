@@ -24,10 +24,10 @@ public class CommonUtil {
 	
 	
 //	public static String path="/data/app/tomcat/data/";
-	public static String path="G:\\project\\stock\\data\\";
-	public static String codeshpath="G:\\project\\stock\\data\\SH.SNT";
-	public static String codeszpath="G:\\project\\stock\\data\\SZ.SNT";
-	public static String outputpath="G:\\project\\stock\\output\\";
+	public static String path="F:\\project\\stock\\data\\";
+	public static String codeshpath="F:\\project\\stock\\data\\SH.SNT";
+	public static String codeszpath="F:\\project\\stock\\data\\SZ.SNT";
+	public static String outputpath="F:\\project\\stock\\output\\";
 	private static SimpleDateFormat fmtspecial=new SimpleDateFormat("yyyyMMdd");
 	private static SimpleDateFormat fmt=new SimpleDateFormat("yyyy-MM-dd");
 	private static DecimalFormat df = new DecimalFormat("#.00");
@@ -160,24 +160,26 @@ public class CommonUtil {
 	
 	public static void main(String[] args) {
 		
-		List<Map<String, Object>> list =new ArrayList<Map<String,Object>>();
-		LinkedHashMap<String, Object> mapName = new LinkedHashMap<String, Object>();
-		Map<String, Object> map2 = new HashMap<String, Object>();
-		Map<String, Object> map3 = new HashMap<String, Object>();
-		mapName.put("todayzhangfu","todayzhangfu");
-		mapName.put("ref1zhangfu","ref1zhangfu");
-		mapName.put("todaySHzhangfu","todaySHzhangfu");
-		mapName.put("ref1SHzhangfu","ref1SHzhangfu");
-		mapName.put("todayCYBzhangfu","todayCYBzhangfu");
-		mapName.put("ref1CYBzhangfu","ref1CYBzhangfu");
-		converMap(mapName);
-		list.add(mapName);
+//		List<Map<String, Object>> list =new ArrayList<Map<String,Object>>();
+//		LinkedHashMap<String, Object> mapName = new LinkedHashMap<String, Object>();
+//		Map<String, Object> map2 = new HashMap<String, Object>();
+//		Map<String, Object> map3 = new HashMap<String, Object>();
+//		mapName.put("todayzhangfu","todayzhangfu");
+//		mapName.put("ref1zhangfu","ref1zhangfu");
+//		mapName.put("todaySHzhangfu","todaySHzhangfu");
+//		mapName.put("ref1SHzhangfu","ref1SHzhangfu");
+//		mapName.put("todayCYBzhangfu","todayCYBzhangfu");
+//		mapName.put("ref1CYBzhangfu","ref1CYBzhangfu");
+//		converMap(mapName);
+//		list.add(mapName);
 //		list.add(map2);
 //		list.add(map3);
 		
-		fileCommonList(list);
+//		fileCommonList(list);
 		
 		
+		String aa = getRegexString("welcome to china,江西奉新,(3123)welcome,你1231!","\\([0-9]*\\)");  
+		System.out.println(aa);
 	}
 	
 	public static String obj2string(Object f) {
@@ -202,5 +204,18 @@ public class CommonUtil {
 		}
 		return returnString;
 	}
+	
+	public static String getRegexString(String str,String regex1){  
+        String regex = regex1;
+        Pattern pattern = Pattern.compile(regex);  
+        Matcher matcher = pattern.matcher(str);  
+        StringBuffer sb = new StringBuffer();  
+        while(matcher.find()){  
+            sb.append(matcher.group());  
+        }  
+        return sb.toString();
+    } 
+	
+	
 
 }
