@@ -7,7 +7,7 @@ import org.apache.commons.lang.StringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-import vo.ProxyVo;
+import com.stock.vo.ProxyVo;
 
 
 public class NetUtil {
