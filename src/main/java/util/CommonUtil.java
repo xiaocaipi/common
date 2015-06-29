@@ -13,10 +13,15 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
+
+import com.stock.vo.ProxyVo;
+
+import service.ProxyService;
 
 
 
@@ -214,7 +219,26 @@ public class CommonUtil {
             sb.append(matcher.group());  
         }  
         return sb.toString();
-    } 
+    }
+	public static void useProxy(Map<String, Object> paraMap) {
+		ProxyService proxyService = (ProxyService)paraMap.get("proxyService");
+		List<ProxyVo> proxyList =proxyService.getUsefulProxyList(paraMap);
+		int listsize = proxyList.size();
+		int random = CommonUtil.getRandomNum(0, listsize-1);
+		ProxyVo vo = proxyList.get(random);
+		String ip=vo.getIp();
+		String port=vo.getPort();
+		System.setProperty("http.proxyHost",ip);
+		System.setProperty("http.proxyPort", port);
+		
+	} 
+	
+	public static int getRandomNum(int min,int max){
+		 Random random = new Random();
+
+	     int s = random.nextInt(max)%(max-min+1) + min;
+	     return s;
+	}
 	
 	
 
