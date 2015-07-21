@@ -240,6 +240,12 @@ public class CommonUtil {
 	     return s;
 	}
 	
+	public static String getCurrentTime(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String time = sdf.format(new Date());
+        return time;
+    }
+	
 	
 
 }
