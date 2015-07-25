@@ -11,7 +11,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import vo.ProxyVo;
+import com.stock.vo.ProxyVo;
 
 public class FetchUtil {
 	

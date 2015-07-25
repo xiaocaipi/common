@@ -1,4 +1,4 @@
-package vo;
+package com.stock.vo;
 
 public class ProxyVo {
 	
