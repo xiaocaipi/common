@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -35,6 +36,7 @@ public class CommonUtil {
 	public static String outputpath="F:\\project\\stock\\output\\";
 	private static SimpleDateFormat fmtspecial=new SimpleDateFormat("yyyyMMdd");
 	private static SimpleDateFormat fmt=new SimpleDateFormat("yyyy-MM-dd");
+	private static SimpleDateFormat fmt1=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	private static DecimalFormat df = new DecimalFormat("#.00");
 	
 	
@@ -245,7 +247,29 @@ public class CommonUtil {
         String time = sdf.format(new Date());
         return time;
     }
-	
+	public static boolean  isInChangeTime() {
+		 boolean returnValue = false;
+		 String currentStringTime =CommonUtil.getCurrentTime();
+		
+		try {
+			 Date current = fmt1.parse(currentStringTime);
+			 Date beginTime1 = fmt1.parse(currentStringTime.split(" ")[0]+" "+"09:15:00");
+			 Date endTime1 = fmt1.parse(currentStringTime.split(" ")[0]+" "+"11:35:00");
+			 Date beginTime2 = fmt1.parse(currentStringTime.split(" ")[0]+" "+"12:55:00");
+			 Date endTime2 = fmt1.parse(currentStringTime.split(" ")[0]+" "+"15:05:00");
+			 if(current.getTime()>=beginTime1.getTime() && current.getTime()<= endTime1.getTime()){
+				 returnValue = true;
+			 }else if(current.getTime()>=beginTime2.getTime() && current.getTime()<= endTime2.getTime()){
+				 returnValue = true;
+			 }
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		 return  returnValue;
+		 
+		 
+	}
 	
 
 }
