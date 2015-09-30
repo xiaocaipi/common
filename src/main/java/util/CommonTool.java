@@ -36,7 +36,7 @@ public class CommonTool {
             ip = request.getRemoteAddr();
         }
         return ip;
-    }
+    } 
     
 	public static BigDecimal obj2BigDecimal(Object obj){
 		if(obj == null || obj.equals("")){

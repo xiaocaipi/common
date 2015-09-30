@@ -4,11 +4,11 @@ import java.util.List;
 
 public class Pager<E> {
 	/**
-	 * 当前�?
+	 * 当前�?
 	 */
 	private int currentPage=1;
 	/**
-	 * 总页�?
+	 * 总页�?
 	 */
 	private int totalPage;
 	/**
@@ -17,14 +17,14 @@ public class Pager<E> {
 	private int totallRecord; 
 	/**
 	 * 分页显示条数
-	 */
+	 */ 
 	private int pageSize =10;
 	/**
 	 * 分页对象
 	 */
 	private List<E> pageList;
 	/**
-	 * 当前记录�?��位置
+	 * 当前记录�?��位置
 	 */
 	private int pageIndex;
 	/**
@@ -97,13 +97,13 @@ public class Pager<E> {
 		this.currentPage = currentPage;
 		this.totallRecord = totallRecord;
 		this.pageList = pageList;
-		// 当前记录�?��位置
+		// 当前记录�?��位置
 		if(currentPage>=1){
 		this.pageIndex = (currentPage - 1) * pageSize;
 		}else{
 		this.pageIndex =0;	
 		}
-		//总页�?
+		//总页�?
 		if (this.totallRecord % this.pageSize == 0) {
 			this.totalPage = this.totallRecord / this.pageSize;
 		} else {
@@ -158,7 +158,7 @@ public class Pager<E> {
 
 	public void setTotallRecord(int totallRecord) {
 		this.totallRecord = totallRecord;
-		//总页�?
+		//总页�?
 		if (this.totallRecord % this.pageSize == 0) {
 			this.totalPage = this.totallRecord / this.pageSize;
 		} else {
@@ -186,7 +186,7 @@ public class Pager<E> {
 	}
 
 	public void setPageIndex(int pageIndex) {
-		// 当前记录�?��位置
+		// 当前记录�?��位置
 		this.pageIndex =pageIndex; 
 	}
 	

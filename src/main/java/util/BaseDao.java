@@ -20,7 +20,7 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapExecutor;
 
 /**
- * BaseDao,Dao�?��承此Dao
+ * BaseDao,Dao�?��承此Dao
  * @author 2012
  * since 2011-3-3 下午02:52:36
  */ 
@@ -34,7 +34,7 @@ public class BaseDao extends SqlMapClientDaoSupport {
     @PostConstruct
     public void initSqlMapClient() {  
         super.setSqlMapClient(sqlMapClient);
-    } 
+    }  
     
     
     public Pager pageMapQuery(String statementName, Pager pager,Map<String,Object> arg) {  
