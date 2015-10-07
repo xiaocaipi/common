@@ -263,8 +263,9 @@ public class CommonUtil {
 		qaDevType = type;
 		if(config == null){
 			if(type.equals("1")){
+				String zkQuorum = getPropertyValue("zkQuorum");
 				config = HBaseConfiguration.create();
-				config.set("hbase.zookeeper.quorum", "hadoop1,hadoop3,hadoop4,hadoop5");
+				config.set("hbase.zookeeper.quorum", zkQuorum);
 				config.set("hbase.zookeeper.property.clientPort", "2181");
 			}else{
 				config = getKerberosConf(type);
