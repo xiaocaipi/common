@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="common">
         <wb-resource deploy-path="/" source-path="/src/main/java"/>
-<<<<<<< HEAD
-=======
         <wb-resource deploy-path="/" source-path="/src/main/resources"/>
->>>>>>> 03d4e8c3d2ecff77f2fe7cf1da1e8d8bfa11f36c
     </wb-module>
 </project-modules>

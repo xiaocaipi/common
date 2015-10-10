@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.client.Get;
 import org.apache.hadoop.hbase.client.HTable;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Result;
@@ -123,6 +124,77 @@ public abstract class BaseHbaseService {
 
         return returnList;
     
+	}
+	
+	
+	
+	
+	/**
+	    *condition  query 
+	    rowkey 
+	    */
+		public static Object queryByConditionGet(HbaseQuery query, Object originObject,
+ String tableTmp) throws Exception {
+
+		String qaDevType = query.getType();
+		if (StringUtils.isEmpty(qaDevType)) {
+			qaDevType = "1";
+		}
+		if (StringUtils.isEmpty(query.getRowkey())) {
+			return "-1";
+		}
+		Configuration conf = CommonUtil.getConf(qaDevType);
+		String tableName = tableTmp;
+		HTable table = new HTable(conf, tableName);
+		Get get = new Get(Bytes.toBytes(query.getRowkey()));
+
+		Result rs = table.get(get);
+		Field[] childFields = originObject.getClass().getDeclaredFields();
+		Field[] superFields = originObject.getClass().getSuperclass()
+				.getDeclaredFields();
+		List<Field> fields = new ArrayList<Field>();
+		for (Field field : childFields) {
+			fields.add(field);
+		}
+		for (Field field : superFields) {
+			fields.add(field);
+		}
+
+		originObject = originObject.getClass().newInstance();
+		for (int i = 0; i < fields.size(); i++) {
+			Field field = fields.get(i);
+			field.setAccessible(true);
+			String filedName = field.getName();
+			if (filedName.equals("huanshoulv")) {
+				System.out.println(111);
+			}
+			// 为了避免测试框架 自动注入字段
+			if ("$VRc".equals(filedName)
+					|| "serialVersionUID".equals(filedName)) {
+				continue;
+			}
+			Class<?> type = field.getType();
+			String fieldSimpleTypeName = type.getSimpleName();
+			Object fieldValue = null;
+			byte[] fieldValueByte = CommonUtil.getFieldValue(tableName,
+					filedName, rs);
+			if ("Long".equals(fieldSimpleTypeName) && fieldValueByte != null) {
+				fieldValue = Bytes.toLong(fieldValueByte);
+			} else if ("String".equals(fieldSimpleTypeName)
+					&& fieldValueByte != null) {
+				fieldValue = Bytes.toString(fieldValueByte);
+			} else if (("Double".equals(fieldSimpleTypeName) || "double"
+					.equals(fieldSimpleTypeName)) && fieldValueByte != null) {
+				fieldValue = Bytes.toDouble(fieldValueByte);
+			}
+			if (fieldValue == null) {
+				continue;
+			}
+			CommonUtil.setter(originObject, filedName, fieldValue, type);
+		}
+
+		return originObject;
+
 	}
 	
 	

@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <faceted-project>
-<<<<<<< HEAD
-  <installed facet="java" version="1.7"/>
-=======
-  <fixed facet="java"/>
   <fixed facet="jst.utility"/>
+  <fixed facet="java"/>
   <installed facet="java" version="1.5"/>
->>>>>>> 03d4e8c3d2ecff77f2fe7cf1da1e8d8bfa11f36c
   <installed facet="jst.utility" version="1.0"/>
 </faceted-project>
