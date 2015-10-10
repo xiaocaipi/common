@@ -96,9 +96,6 @@ public abstract class BaseHbaseService {
             	Field field = fields.get(i);
             	field.setAccessible(true);
                 String filedName = field.getName();
-                if(filedName.equals("huanshoulv")){
-                	System.out.println(111);
-                }
                 //为了避免测试框架 自动注入字段
                 if("$VRc".equals(filedName) ||"serialVersionUID".equals(filedName)){
                     continue;
