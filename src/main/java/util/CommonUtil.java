@@ -2,6 +2,7 @@ package util;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -406,6 +407,45 @@ public class CommonUtil {
     
     public static String getCurrentDate(){
     	return fmt.format(new Date());
+    }
+    
+    public static String toString(Object obj) throws Exception {
+
+        String returnString ="";
+        Field[] childFields = obj.getClass().getDeclaredFields();
+		Field[] superFields = obj.getClass().getSuperclass()
+				.getDeclaredFields();
+		List<Field> fields = new ArrayList<Field>();
+		for (Field field : childFields) {
+			fields.add(field);
+		}
+		for (Field field : superFields) {
+			fields.add(field);
+		}
+        for (int i = 0; i < fields.size(); i++) {
+        	Field field = fields.get(i);
+        	field.setAccessible(true);
+            String filedName = field.getName();
+            if("$VRc".equals(filedName) ||"serialVersionUID".equals(filedName)){
+                continue;
+            }
+            Class<?> type = field.getType();
+            String fieldSimpleTypeName = type.getSimpleName();
+            Object fieldValueTmp = getter(obj, filedName);
+            if ("Long".equals(fieldSimpleTypeName) && fieldValueTmp != null) {
+                Long fieldValue = CommonUtil.obj2long(fieldValueTmp);
+                returnString = returnString+"\t"+"字段:"+filedName+" 值是:"+fieldValue;
+            } else if ("String".equals(fieldSimpleTypeName) && fieldValueTmp != null) {
+                String fieldValue = CommonUtil.obj2string(fieldValueTmp);
+                returnString = returnString+"\t"+"字段:"+filedName+" 值是:"+fieldValue;
+            }else if (("Double".equals(fieldSimpleTypeName) || "double"
+					.equals(fieldSimpleTypeName)) && fieldValueTmp != null) {
+            	Double fieldValue = CommonUtil.obj2Double(fieldValueTmp);
+            	 returnString = returnString+"\t"+"字段:"+filedName+" 值是:"+fieldValue;
+				
+			}
+        }
+        return  returnString;
     }
 	    
 	    
