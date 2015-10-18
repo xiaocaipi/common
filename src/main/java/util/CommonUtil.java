@@ -447,6 +447,11 @@ public class CommonUtil {
         }
         return  returnString;
     }
+    
+    public static int getRandonNum(int min,int max){
+    	int random=(int)(Math.random()*(max+1-min)+min) ;
+    	return random;
+    }
 	    
 	    
 

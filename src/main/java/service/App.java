@@ -14,6 +14,8 @@ import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.client.HTable;
 import org.apache.hadoop.security.UserGroupInformation;
 
+import util.CommonUtil;
+
 
 /**
  * Hello world!
@@ -25,8 +27,12 @@ public class App
 	
 
     	public static void main(String[] args) throws Exception {
-    		Configuration config =getConf();
-    		HTable table = new HTable(config, "test");
+//    		Configuration config =getConf();
+//    		HTable table = new HTable(config, "test");
+    		while(true){
+    			System.out.println(CommonUtil.getRandomNum(11, 13));
+    		}
+    		
     		
 		}
     	
