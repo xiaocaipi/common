@@ -42,6 +42,7 @@ public class NetUtil {
 	}
 	
 	//paraMap  isProxy   是否开启代理  1 是开启  空 或者2 是开启   默认不开启
+	//paraMap  需要开启代理要传入proxyService
 	public static Document goFetchIsProxy(String districtUrl, Document doc,HashMap<String, Object> paraMap) throws Exception {
 		
 		String isProxy = CommonUtil.obj2string(paraMap.get("isProxy"));
@@ -49,10 +50,12 @@ public class NetUtil {
 		if(!isProxy.equals("-1")){
 			ProxyService proxyService = (ProxyService)paraMap.get("proxyService");
 			List<ProxyVo> list = proxyService.getUsefulProxyList(new HashMap<String, Object>());
-			
+			int random = CommonUtil.getRandomNum(0, list.size());
+			ProxyVo vo = list.get(random);
+			paraMap.put("proxy", vo);
 
 		}
 		
-		return null;
+		return goFetch(districtUrl, doc, paraMap);
 	}
 }
