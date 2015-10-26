@@ -330,6 +330,36 @@ public class CommonUtil {
 		return url;
 	}
 	
+	public static String getOutPropertyValue(String key) {
+		if(StringUtils.isEmpty(qaDevType)){
+			qaDevType ="1";
+		}
+		String currentSystem = System.getProperty("os.name");
+		String propertiesName = "";
+		if (currentSystem.toLowerCase().contains("linux")) {
+			if(qaDevType.equals("1")){
+				propertiesName = "linux_dev_out_env.properties";
+			}else if(qaDevType.equals("2")){
+				propertiesName = "linux_qa_out_env.properties";
+			}
+			
+		} else {
+			if(qaDevType.equals("1")){
+				propertiesName = "F:\\project\\property\\win_dev_out_env.properties";
+			}else if(qaDevType.equals("2")){
+				propertiesName = "F:\\project\\property\\win_qa_out_env.properties";
+			}
+		}
+		String propFileName = new File(propertiesName).getName();
+		int index = propFileName.indexOf(".properties");
+		if (index > 0) {
+			propFileName = propFileName.substring(0, index);
+		}
+		ResourceBundle rsb = ResourceBundle.getBundle(propFileName, Locale.US);
+		String url = rsb.getString(key);
+		return url;
+	}
+	
 	 public static void setter(Object obj, String att, Object value,
 				Class<?> type) {
 			try {

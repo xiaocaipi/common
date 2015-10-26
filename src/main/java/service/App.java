@@ -27,12 +27,8 @@ public class App
 	
 
     	public static void main(String[] args) throws Exception {
-//    		Configuration config =getConf();
-//    		HTable table = new HTable(config, "test");
-    		while(true){
-    			System.out.println(CommonUtil.getRandomNum(11, 13));
-    		}
-    		
+    				String aa = CommonUtil.getOutPropertyValue("aaa");
+    				System.out.println(aa);
     		
 		}
     	
