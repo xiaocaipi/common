@@ -40,6 +40,7 @@ import service.ProxyService;
 public class CommonUtil {
 
 	// public static String path="/data/app/tomcat/data/";
+	//要废弃掉的字段，改成从配置文件中获取
 	public static String path = "F:\\project\\stock\\data\\";
 	public static String codeshpath = "F:\\project\\stock\\data\\SH.SNT";
 	public static String codeszpath = "F:\\project\\stock\\data\\SZ.SNT";

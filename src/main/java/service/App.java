@@ -1,5 +1,6 @@
 package service;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,8 +28,15 @@ public class App
 	
 
     	public static void main(String[] args) throws Exception {
-    				String aa = CommonUtil.getOutPropertyValue("aaa");
-    				System.out.println(aa);
+//    				String aa = CommonUtil.getOutPropertyValue("aaa");
+//    				System.out.println(aa);
+    		String stockTigerPath =CommonUtil.getPropertyValue("stockTigerPath");
+    		File file = new File(stockTigerPath+"data1.txt");
+    		File parentDirectory = new File(file.getParent());
+    		
+    		if(!parentDirectory.exists()&& !parentDirectory .isDirectory()){
+    			parentDirectory.mkdir();
+    		}
     		
 		}
     	

@@ -152,6 +152,12 @@ public class CommonTool {
 	
 	public static void formatFlie(String fileName, String context,boolean exitIsdelete) { 
 		File f = new File(fileName); 
+		File parentDirectory = new File(f.getParent());
+		
+		if(!parentDirectory.exists()&& !parentDirectory .isDirectory()){
+			parentDirectory.mkdir();
+		}
+		
 		if(f.exists()){
 			if(exitIsdelete){
 				f.delete();
