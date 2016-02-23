@@ -483,6 +483,12 @@ public class CommonUtil {
     	int random=(int)(Math.random()*(max+1-min)+min) ;
     	return random;
     }
+    
+    public static String getKafkaOpen(){
+    	String isGlobalKafkaOpen = getPropertyValue("isGlobalKafkaOpen");
+    	return isGlobalKafkaOpen;
+    	
+    }
 	    
 	    
 
