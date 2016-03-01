@@ -133,6 +133,16 @@ public class CommonUtil {
 		}
 		return returnDate;
 	}
+	
+	public static Date praseStringToDate(String date, boolean special) throws ParseException {
+		Date returnDate = null;
+		if (special) {
+			returnDate = fmtspecial.parse(date);
+		} else {
+			returnDate = fmt.parse(date);
+		}
+		return returnDate;
+	}
 
 	public static void fileCommonList(List<Map<String, Object>> list) {
 		String printline = "";
@@ -489,6 +499,8 @@ public class CommonUtil {
     	return isGlobalKafkaOpen;
     	
     }
+    
+    
 	    
 	    
 

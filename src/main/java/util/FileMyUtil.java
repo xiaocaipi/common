@@ -29,15 +29,25 @@ public class FileMyUtil {
 	                  file.delete();
 	              }
 	          } else {
-	              System.out.println("�?��除的文件不存在！" + '\n');
+	              System.out.println("�?��除的文件不存在！" + '\n');
 	          }
 	      } catch (Exception e) {
 	          System.out.print("unable to delete the folder!");
 	      }
 	  }
 	
-	public static void main(String[] args) throws IOException {
+	public static String readFile(String path) throws IOException{
+		String returnString = "";
+		File file = new File(path);
+		if(file.exists()){
+			returnString=FileUtils.readFileToString(file);
+		}
+		
+		return returnString;
+	}
 	
+	public static void main(String[] args) throws IOException {
+		
 	}
 
 }

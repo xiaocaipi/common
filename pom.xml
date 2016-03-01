@@ -50,14 +50,14 @@
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
-			<version>4.2.1</version>
+			<version>4.3.1</version>
 		</dependency>
 
-<!-- 		<dependency> -->
-<!-- 			<groupId>javax.jms</groupId> -->
-<!-- 			<artifactId>jms</artifactId> -->
-<!-- 			<version>1.1</version> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>javax.jms</groupId> -->
+		<!-- <artifactId>jms</artifactId> -->
+		<!-- <version>1.1</version> -->
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpmime</artifactId>
@@ -68,12 +68,12 @@
 			<artifactId>commons-discovery</artifactId>
 			<version>0.5</version>
 		</dependency>
- 
-	<dependency>  
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-test</artifactId>
-		<version>3.0.0.RELEASE</version>
-	</dependency>     
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>3.0.0.RELEASE</version>
+		</dependency>
 
 		<dependency>
 			<groupId>commons-fileupload</groupId>
@@ -262,19 +262,19 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.30</version>
 		</dependency>
-		
+
 		<dependency>
-         <groupId>org.jsoup</groupId>
-         <artifactId>jsoup</artifactId>
-         <version>1.5.2</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-             <version>1.2</version>
-             <scope>runtime</scope>
-        </dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.5.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+			<scope>runtime</scope>
+		</dependency>
 
 
 
@@ -321,7 +321,11 @@
 			<version>0.98.3-hadoop2</version>
 		</dependency>
 
-
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.3.1</version>
+		</dependency>
 
 	</dependencies>
 
