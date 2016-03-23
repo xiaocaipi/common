@@ -51,6 +51,8 @@ public class CommonUtil {
 	private static SimpleDateFormat fmt1 = new SimpleDateFormat(
 			"yyyy-MM-dd HH:mm:ss");
 	private static DecimalFormat df = new DecimalFormat("#.00");
+	
+	private static SimpleDateFormat fmt2 = new SimpleDateFormat("yyyyMMdd");
 
 	private static Configuration config = null;
 	
@@ -425,6 +427,24 @@ public class CommonUtil {
     		}
     		
     	}
+	    
+	    public static String  getDatesByDaySpecial(String time,
+    			int  n) {
+
+    		try {
+    			Calendar calendar = new GregorianCalendar();
+
+    			Date startdate = fmt2.parse(time);
+    			calendar.setTime(startdate);
+    			calendar.add(calendar.DATE, n);
+				String date2 = fmt2.format(calendar.getTime());
+				return date2;
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    			throw new RuntimeException(e);
+    		}
+    		
+    	}
 
 		
     public static Long obj2long(Object f) {
@@ -448,6 +468,10 @@ public class CommonUtil {
     
     public static String getCurrentDate(){
     	return fmt.format(new Date());
+    }
+    
+    public static String getCurrentDateSpecial(){
+    	return fmt2.format(new Date());
     }
     
     public static String toString(Object obj) throws Exception {
@@ -500,7 +524,35 @@ public class CommonUtil {
     	
     }
     
-    
+    /**
+	 * 检查参数是否正确
+	 * @param Map<String,String>  
+	 *        para field
+	 * 
+	 * @return --0   map is null
+	 *           1   para is null
+	 *           2   value is null
+	 *           3   correct
+	 * @throws 
+	 */
+    public static int  checkParaMap(Map<String,String> paraMap,String ...paraFields){
+    	int result =0;
+    	if(paraMap == null){
+    		result =0;
+    		return result;
+    	}
+    	if(paraFields.length==0){
+    		return 1;
+    	}
+    	for(String field :paraFields){
+    		String value = paraMap.get(field);
+    		if(value ==null){
+    			return 2;
+    		}
+    	}
+    	
+    	return 3;
+    }
 	    
 	    
 
