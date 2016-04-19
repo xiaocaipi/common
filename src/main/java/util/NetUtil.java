@@ -33,7 +33,7 @@ public class NetUtil {
 		}
 		
 		try {
-			doc = Jsoup.connect(districtUrl).timeout(Integer.parseInt(timeout)).userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.116 Safari/537.36").get() ;
+			doc = Jsoup.connect(districtUrl).timeout(Integer.parseInt(timeout)).userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36").get() ;
 		} catch (IOException e) {
 			System.out.println("获取网页--"+districtUrl+"失败"+"失败的ip---"+ ip);
 		}

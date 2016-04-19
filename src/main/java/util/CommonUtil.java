@@ -553,6 +553,10 @@ public class CommonUtil {
     	
     	return 3;
     }
+
+	public static void setConfig(Configuration config) {
+		CommonUtil.config = config;
+	}
 	    
 	    
 
