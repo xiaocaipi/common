@@ -524,6 +524,12 @@ public class CommonUtil {
     	
     }
     
+    public static String getIsInit(){
+    	String isInit = getPropertyValue("isInit");
+    	return isInit;
+    	
+    }
+    
     /**
 	 * 检查参数是否正确
 	 * @param Map<String,String>  
