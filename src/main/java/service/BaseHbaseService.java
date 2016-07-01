@@ -290,6 +290,9 @@ public abstract class BaseHbaseService {
 			field.setAccessible(true);
 
 			String filedName = field.getName();
+			if(filedName.contains("serialVersionUID")){
+				continue;
+			}
 			Class<?> type = field.getType();
 			String fieldSimpleTypeName = type.getSimpleName();
 			Object fieldValueTmp = CommonUtil.getter(obj, filedName);

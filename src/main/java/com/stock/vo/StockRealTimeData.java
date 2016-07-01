@@ -51,6 +51,8 @@ public class StockRealTimeData extends StockData {
 	private Double refclose;//昨天的收盘价
 	
 	private Double dealnowmoney;//一次变动成交了多少钱
+	
+	private String batchId;
 
 	public String getTime() {
 		return time;
@@ -251,6 +253,17 @@ public class StockRealTimeData extends StockData {
 	public void setDealnowmoney(Double dealnowmoney) {
 		this.dealnowmoney = dealnowmoney;
 	}
+
+	public String getBatchId() {
+		return batchId;
+	}
+
+	public void setBatchId(String batchId) {
+		this.batchId = batchId;
+	}
+
+	
+	
 	
 	
 }
