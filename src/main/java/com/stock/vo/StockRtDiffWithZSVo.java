@@ -45,6 +45,8 @@ public class StockRtDiffWithZSVo implements Serializable{
 	private Double diff_sum_30;
 	
 	private Double zhangdiefudu;
+	
+	private Double diff_60;
 
 	public String getRowkey() {
 		return rowkey;
@@ -128,12 +130,22 @@ public class StockRtDiffWithZSVo implements Serializable{
 	public void setZhangdiefudu(Double zhangdiefudu) {
 		this.zhangdiefudu = zhangdiefudu;
 	}
+	
+	
+
+	public Double getDiff_60() {
+		return diff_60;
+	}
+
+	public void setDiff_60(Double diff_60) {
+		this.diff_60 = diff_60;
+	}
 
 	@Override
 	public String toString() {
 		DecimalFormat df = new DecimalFormat("0.0000");
 		String out = this.code+"--"+this.batch_id+"--"+this.time+"--   "+df.format(this.diff_sum_3)
-					 +"--   "+df.format(this.zhangdiefudu);
+					 +"--   "+df.format(this.zhangdiefudu)+"--   "+df.format(this.diff_60);
 		return out;
 	}
 	
