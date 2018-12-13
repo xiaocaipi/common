@@ -1,6 +1,12 @@
 package com.stock.vo;
 
-public class StockData {
+import java.io.Serializable;
+
+public class StockData implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String rowkey;
 	private String code; // 股票编码
 	private String name; // 股票名称
