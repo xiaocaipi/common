@@ -287,7 +287,7 @@ public class CommonUtil {
 			Date beginTime2 = fmt1.parse(currentStringTime.split(" ")[0] + " "
 					+ "12:55:00");
 			Date endTime2 = fmt1.parse(currentStringTime.split(" ")[0] + " "
-					+ "15:56:00");
+					+ "12:56:00");
 			if (current.getTime() >= beginTime1.getTime()
 					&& current.getTime() <= endTime1.getTime()) {
 				returnValue = true;
