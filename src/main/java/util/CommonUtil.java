@@ -272,6 +272,36 @@ public class CommonUtil {
 		return returnValue;
 
 	}
+
+
+	public static boolean isInUpdateCodeTime() {
+		boolean returnValue = false;
+		String currentStringTime = CommonUtil.getCurrentTime();
+
+		try {
+			Date current = fmt1.parse(currentStringTime);
+			Date beginTime1 = fmt1.parse(currentStringTime.split(" ")[0] + " "
+					+ "09:15:00");
+			Date endTime1 = fmt1.parse(currentStringTime.split(" ")[0] + " "
+					+ "09:16:00");
+			Date beginTime2 = fmt1.parse(currentStringTime.split(" ")[0] + " "
+					+ "12:55:00");
+			Date endTime2 = fmt1.parse(currentStringTime.split(" ")[0] + " "
+					+ "15:56:00");
+			if (current.getTime() >= beginTime1.getTime()
+					&& current.getTime() <= endTime1.getTime()) {
+				returnValue = true;
+			} else if (current.getTime() >= beginTime2.getTime()
+					&& current.getTime() <= endTime2.getTime()) {
+				returnValue = true;
+			}
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+		return returnValue;
+
+	}
 	
 	public static Configuration getConf(String type) throws IOException {
 		qaDevType = type;
